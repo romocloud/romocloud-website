@@ -1,0 +1,33 @@
+/* Romo Cloud rebuild: styles for the parts added on top of the original stylesheet (site.css). */
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:5.5rem}
+.rc-pointer{position:relative;z-index:10;margin-top:.25rem;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#C8A15A}
+.rc-under{max-width:48rem;margin:2.5rem auto 0;text-align:center}
+.rc-under p{margin-top:.75rem;font-size:1rem;line-height:1.6;color:rgb(255 255 255 / .8)}
+.rc-menu{display:none;border-top:1px solid hsl(var(--border));background:hsl(var(--cream));padding:.5rem 1.5rem 1.5rem}
+.rc-menu.open{display:block}
+.rc-menu a{display:block;padding:.75rem 0;font-size:1rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:hsl(var(--navy))}
+.rc-menu a.rc-call{margin-top:.75rem;padding:.85rem 1rem;border-radius:9999px;text-align:center;background:hsl(var(--navy));color:#fff}
+@media (min-width:1024px){.rc-menu{display:none!important}}
+.gradient-hero{overflow-x:clip}
+/* the headline stays on one line: sized to the room it has at each width */
+.rc-h1{font-size:min(calc((100vw - 48px) / 14),2.25rem)!important}
+@media (min-width:768px){.rc-h1{font-size:3rem!important}}
+@media (min-width:1024px){.rc-h1{font-size:min(calc((100vw - 96px) / 28),2.9rem)!important}}
+/* the flipping headline: "Be" stays, the word after it changes. The full line stays in the page for readers that don't run scripts. */
+.rc-flip{display:none}
+.rc-flip-on .rc-static{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.rc-flip-on .rc-flip{display:inline-block;white-space:nowrap}
+.rc-h1.rc-flip-on{font-size:2.6rem!important}
+@media (min-width:768px){.rc-h1.rc-flip-on{font-size:3.5rem!important}}
+@media (min-width:1024px){.rc-h1.rc-flip-on{font-size:3.75rem!important}}
+.rc-slot{display:inline-block;position:relative;text-align:left;vertical-align:bottom}
+.rc-word{display:inline-block;white-space:nowrap;animation:rc-word-in .45s cubic-bezier(.2,.9,.3,1.2) both}
+.rc-word i{display:inline-block;font-style:normal;animation:rc-letter-in .2s ease-out both}
+.rc-word.rc-out{position:absolute;left:0;top:0;animation:rc-word-out .55s ease-in forwards}
+@keyframes rc-word-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes rc-letter-in{from{opacity:0;transform:translateY(10px);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes rc-word-out{to{opacity:0;transform:translate(40px,-40px) scale(2);filter:blur(8px)}}
+[aria-label="Circular Gallery"] [role="group"]{opacity:1!important;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+@keyframes rc-spin{from{transform:rotateY(0deg)}to{transform:rotateY(-360deg)}}
+@media (prefers-reduced-motion:no-preference){[aria-label="Circular Gallery"]>div>div{animation:rc-spin 45s linear infinite}}
