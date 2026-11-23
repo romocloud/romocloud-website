@@ -19,7 +19,7 @@
       slot.style.minWidth=(m/parseFloat(getComputedStyle(h).fontSize))+'em';};
     fit();if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}
     var n=0,cur=mk(words[0]);slot.appendChild(cur);
-    setInterval(function(){var old=cur;old.classList.add('rc-out');old.addEventListener('animationend',function(e){if(e.target===old){old.remove();}});
+    setInterval(function(){if(document.hidden){return;}var old=cur;old.classList.add('rc-out');setTimeout(function(){old.remove();},700);
       n=(n+1)%words.length;cur=mk(words[n]);slot.appendChild(cur);},3000);
   }
   var ps=document.querySelectorAll('[data-rc-panel]');
